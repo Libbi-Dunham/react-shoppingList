@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 
-export default function ItemForm() {
+export default function ItemForm({ addItems }) {
   const [addItem, setaddItem] = useState('');
-
-  const handleSubmit = async (e) => {
+  console.log(addItem);
+  const handleSubmit = (e) => {
     e.preventDefault();
     setaddItem('');
+    addItems(addItem);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -19,9 +20,9 @@ export default function ItemForm() {
           value={addItem}
           onChange={(e) => setaddItem(e.target.value)}
         />
-        <div>
+        {/* <div>
           <input className="button" type="submit" value="Save" />
-        </div>
+        </div> */}
       </div>
     </form>
   );
