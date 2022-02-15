@@ -4,6 +4,7 @@ import { useState } from 'react';
 export default function ItemForm({ addItems }) {
   const [addItem, setaddItem] = useState('');
   console.log(addItem);
+  // console.log(items);
   const handleSubmit = (e) => {
     e.preventDefault();
     setaddItem('');
@@ -20,9 +21,9 @@ export default function ItemForm({ addItems }) {
           value={addItem}
           onChange={(e) => setaddItem(e.target.value)}
         />
-        {/* <div>
-          <input className="button" type="submit" value="Save" />
-        </div> */}
+        <div>
+          <button type="submit">Save</button>
+        </div>
       </div>
     </form>
   );

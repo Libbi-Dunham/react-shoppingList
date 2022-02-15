@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import ItemList from '../../Components/Item/ItemList';
 import ItemForm from '../../Components/ItemForm/ItemForm';
 
 const initialItems = [{ id: 0, text: 'hello' }];
@@ -35,6 +36,7 @@ export default function Shopping() {
     <>
       <h1>Shopping List!</h1>
       <ItemForm addItems={add} items={items} />
+      <ItemList items={items} />
     </>
   );
 }
