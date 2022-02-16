@@ -15,6 +15,17 @@ function itemsReducer(items, action) {
         },
       ];
     }
+    case 'edit': {
+      return items.map((item) => {
+        if (item.id === action.task.id) {
+          return action.task;
+        }
+        return item;
+      });
+    }
+    case 'deleted': {
+      return items.filter((item) => item.id !== action.id);
+    }
     default: {
       throw Error(`Unknown action: ${action.type}`);
     }
@@ -32,11 +43,25 @@ export default function Shopping() {
     });
   };
 
+  //   const edit = (task) => {
+  //     dispatch({
+  //       type: 'edit',
+  //       task,
+  //     });
+  //   };
+
+  const handledelete = (taskId) => {
+    dispatch({
+      type: 'deleted',
+      id: taskId,
+    });
+  };
+
   return (
     <>
       <h1>Shopping List!</h1>
       <ItemForm addItems={add} items={items} />
-      <ItemList items={items} />
+      <ItemList items={items} onDeleteItem={handledelete} />
     </>
   );
 }

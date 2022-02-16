@@ -3,8 +3,6 @@ import { useState } from 'react';
 
 export default function ItemForm({ addItems }) {
   const [addItem, setaddItem] = useState('');
-  console.log(addItem);
-  // console.log(items);
   const handleSubmit = (e) => {
     e.preventDefault();
     setaddItem('');
