@@ -43,12 +43,12 @@ export default function Shopping() {
     });
   };
 
-  //   const edit = (task) => {
-  //     dispatch({
-  //       type: 'edit',
-  //       task,
-  //     });
-  //   };
+  const edit = (task) => {
+    dispatch({
+      type: 'edit',
+      task,
+    });
+  };
 
   const handledelete = (taskId) => {
     dispatch({
@@ -61,7 +61,7 @@ export default function Shopping() {
     <>
       <h1>Shopping List!</h1>
       <ItemForm addItems={add} items={items} />
-      <ItemList items={items} onDeleteItem={handledelete} />
+      <ItemList items={items} onEditItem={edit} onDeleteItem={handledelete} />
     </>
   );
 }
