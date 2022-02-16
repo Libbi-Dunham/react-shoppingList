@@ -5,7 +5,12 @@ export default function Item({ items, onChange, onDelete }) {
   const [editing, setEditing] = useState(false);
   return (
     <div className="div">
-      <button className="deleted" type="button" onClick={() => onDelete(items.id)}>
+      <button
+        className="deleted"
+        type="button"
+        onClick={() => onDelete(items.id)}
+        aria-label={`Delete ${items.text}`}
+      >
         Delete
       </button>
       <br></br>
@@ -24,7 +29,9 @@ export default function Item({ items, onChange, onDelete }) {
       {!editing && (
         <>
           {items.text}
-          <button onClick={() => setEditing(true)}>Edit</button>
+          <button onClick={() => setEditing(true)} aria-label={`Edit ${items.text}`}>
+            Edit
+          </button>
         </>
       )}
     </div>

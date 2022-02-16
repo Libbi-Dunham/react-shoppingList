@@ -7,4 +7,6 @@ test('tests the behavior', () => {
   const addButton = screen.getByRole('button', { name: /Save/i });
   userEvent.click(addButton);
   expect(addButton).toBeInTheDocument();
+  const editButton = screen.getByLabelText('Edit hello');
+  userEvent.click(editButton);
 });
