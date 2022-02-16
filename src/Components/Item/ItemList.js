@@ -3,15 +3,15 @@ import Item from '../../Components/Item/Item';
 
 export default function ItemList({ items, onEditItem, onDeleteItem }) {
   return (
-    <ul>
+    <div>
       {items.map((item) => {
         return (
-          <li key={item.id}>
+          <p key={item.id}>
             {item.text}
             <Item items={item} onChange={onEditItem} onDelete={onDeleteItem} />
-          </li>
+          </p>
         );
       })}
-    </ul>
+    </div>
   );
 }

@@ -1,3 +1,25 @@
+body {
+  background-color: #e4c1f9;
+  font-family: 'RussischSansRegular';
+  font-weight: normal;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div {
+  margin-left: 50px;
+}
+.save {
+  margin: 10px;
+  margin-left: 50px;
+}
+input {
+  border-radius: 50px;
+}
+button {
+  border-radius: 50px;
+}
 .App {
   text-align: center;
 }

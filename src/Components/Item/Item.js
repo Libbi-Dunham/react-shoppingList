@@ -4,8 +4,8 @@ import { useState } from 'react';
 export default function Item({ items, onChange, onDelete }) {
   const [editing, setEditing] = useState(false);
   return (
-    <div>
-      <button type="button" onClick={() => onDelete(items.id)}>
+    <div className="div">
+      <button className="deleted" type="button" onClick={() => onDelete(items.id)}>
         Delete
       </button>
       <br></br>

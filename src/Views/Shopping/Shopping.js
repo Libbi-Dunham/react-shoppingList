@@ -60,6 +60,7 @@ export default function Shopping() {
   return (
     <>
       <h1>Shopping List!</h1>
+      <p>~Add an Item to the List~</p>
       <ItemForm addItems={add} items={items} />
       <ItemList items={items} onEditItem={edit} onDeleteItem={handledelete} />
     </>
