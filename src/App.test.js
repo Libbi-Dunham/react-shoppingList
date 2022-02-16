@@ -9,4 +9,7 @@ test('tests the behavior', () => {
   expect(addButton).toBeInTheDocument();
   const editButton = screen.getByLabelText('Edit hello');
   userEvent.click(editButton);
+  const deleteButton = screen.getByLabelText('Delete hello');
+  userEvent.click(deleteButton);
+  expect(screen.queryByText('hello')).toBeNull();
 });
