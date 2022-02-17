@@ -17,6 +17,7 @@ export default function ItemForm({ addItems }) {
           type="text"
           placeholder="item"
           value={addItem}
+          required
           onChange={(e) => setaddItem(e.target.value)}
         />
         <div>
