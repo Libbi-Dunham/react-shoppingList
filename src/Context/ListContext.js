@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer } from 'react';
 
-const initialItems = [];
+const initialItems = [{ id: 0, text: 'hello' }];
+const refresh = [];
 export const ListContext = createContext();
 const ListProvider = ({ children }) => {
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
@@ -28,7 +29,7 @@ const ListProvider = ({ children }) => {
         return items.filter((item) => item.id !== action.id);
       }
       case 'clear': {
-        return initialItems;
+        return refresh;
       }
       default: {
         throw Error(`Unknown action: ${action.type}`);
