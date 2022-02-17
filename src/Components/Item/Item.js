@@ -19,7 +19,7 @@ export default function Item({ items, onChange, onDelete }) {
         <>
           <input
             value={items.text}
-            aria-label="Edit input"
+            aria-label="Editinput"
             onChange={(e) => {
               onChange({ ...items, text: e.target.value });
             }}
