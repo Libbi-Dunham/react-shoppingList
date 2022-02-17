@@ -1,38 +1,40 @@
 import { createContext, useContext, useReducer } from 'react';
 
-const initialItems = [{ id: 0, text: 'hello' }];
-
-function itemsReducer(items, action) {
-  switch (action.type) {
-    case 'added': {
-      return [
-        ...items,
-        {
-          id: items.length + 1,
-          text: action.text,
-        },
-      ];
-    }
-    case 'edit': {
-      return items.map((item) => {
-        if (item.id === action.task.id) {
-          return action.task;
-        }
-        return item;
-      });
-    }
-    case 'deleted': {
-      return items.filter((item) => item.id !== action.id);
-    }
-    default: {
-      throw Error(`Unknown action: ${action.type}`);
-    }
-  }
-}
-
+const initialItems = [];
 export const ListContext = createContext();
 const ListProvider = ({ children }) => {
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
+
+  function itemsReducer(items, action) {
+    switch (action.type) {
+      case 'added': {
+        return [
+          ...items,
+          {
+            id: items.length + 1,
+            text: action.text,
+          },
+        ];
+      }
+      case 'edit': {
+        return items.map((item) => {
+          if (item.id === action.task.id) {
+            return action.task;
+          }
+          return item;
+        });
+      }
+      case 'deleted': {
+        return items.filter((item) => item.id !== action.id);
+      }
+      case 'clear': {
+        return initialItems;
+      }
+      default: {
+        throw Error(`Unknown action: ${action.type}`);
+      }
+    }
+  }
 
   const add = (text) => {
     dispatch({
@@ -56,8 +58,15 @@ const ListProvider = ({ children }) => {
     });
   };
 
+  const clear = (taskId) => {
+    dispatch({
+      type: 'clear',
+      id: taskId,
+    });
+  };
+
   return (
-    <ListContext.Provider value={{ items, add, edit, handledelete }}>
+    <ListContext.Provider value={{ items, add, edit, handledelete, clear }}>
       {children}
     </ListContext.Provider>
   );
