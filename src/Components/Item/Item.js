@@ -19,11 +19,14 @@ export default function Item({ items, onChange, onDelete }) {
         <>
           <input
             value={items.text}
+            aria-label="Edit input"
             onChange={(e) => {
               onChange({ ...items, text: e.target.value });
             }}
           />
-          <button onClick={() => setEditing(false)}>Save</button>
+          <button onClick={() => setEditing(false)} aria-label="Changes">
+            Save
+          </button>
         </>
       )}
       {!editing && (
