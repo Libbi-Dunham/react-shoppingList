@@ -7,8 +7,12 @@ body {
   align-items: center;
   justify-content: center;
 }
-.div {
+/* .div {
   margin-left: 50px;
+} */
+li {
+  list-style: none;
+  display: flex;
 }
 .save {
   margin: 10px;

@@ -13,8 +13,6 @@ export default function Item({ items, onChange, onDelete }) {
       >
         Delete
       </button>
-      <br></br>
-      <br></br>
       {editing && (
         <>
           <input
@@ -31,7 +29,7 @@ export default function Item({ items, onChange, onDelete }) {
       )}
       {!editing && (
         <>
-          {items.text}
+          {/* {items.text} */}
           <button onClick={() => setEditing(true)} aria-label={`Edit ${items.text}`}>
             Edit
           </button>
