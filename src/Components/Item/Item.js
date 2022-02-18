@@ -29,7 +29,6 @@ export default function Item({ items, onChange, onDelete }) {
       )}
       {!editing && (
         <>
-          {/* {items.text} */}
           <button onClick={() => setEditing(true)} aria-label={`Edit ${items.text}`}>
             Edit
           </button>

@@ -7,8 +7,6 @@ export default function Header() {
     <header>
       <div>
         <span>{items.length} Items</span>
-        <br></br>
-        <br></br>
         <button
           onClick={() => {
             clear();
